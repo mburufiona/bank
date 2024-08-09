@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function NewTransaction() {
+function NewTransaction({ addTransaction }) {
   const [date, setDate] = useState("");
   const [description, setDescription] = useState("");
   const [category, setCategory] = useState("");
@@ -9,13 +9,14 @@ function NewTransaction() {
   const handleDescription = (event) => setDescription(event.target.value);
   const handleCategory = (event) => setCategory(event.target.value);
   const handleAmount = (event) => setAmount(event.target.value);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const transactionData = {
-      date: date,
-      description: description,
-      category: category,
-      amount: amount,
+      date,
+      description,
+      category,
+      amount,
     };
     fetch("http://localhost:3000/transactions", {
       method: "POST",
@@ -26,13 +27,17 @@ function NewTransaction() {
       body: JSON.stringify(transactionData),
     })
       .then((res) => res.json())
-      .then((data) => data("successful"))
+      .then((newTransaction) => {
+        addTransaction(newTransaction);
+      })
       .catch((error) => console.log(error));
+
     setDate("");
     setDescription("");
     setCategory("");
     setAmount("");
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -47,15 +52,26 @@ function NewTransaction() {
         <div>
           <input
             type="text"
+            placeholder="Description"
             value={description}
             onChange={handleDescription}
           ></input>
         </div>
         <div>
-          <input type="text" value={category} onChange={handleCategory} />
+          <input
+            type="text"
+            placeholder="Category"
+            value={category}
+            onChange={handleCategory}
+          />
         </div>
         <div>
-          <input type="number" value={amount} onChange={handleAmount} />
+          <input
+            type="number"
+            placeholder="Amount"
+            value={amount}
+            onChange={handleAmount}
+          />
         </div>
         <div>
           <input type="submit" value="Add Transaction" />

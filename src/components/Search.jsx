@@ -1,15 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Transaction from "./Transaction";
-// import Transaction from "./Transaction";
 
-function TransactionList() {
-  const [transactionList, setTransactionList] = useState([]);
+function TransactionList({ transactionList }) {
   const [search, setSearch] = useState("");
-  useEffect(() => {
-    fetch("http://localhost:3000/transactions")
-      .then((res) => res.json())
-      .then((transactionList) => setTransactionList(transactionList));
-  }, []);
+
+  const searchTransactions = transactionList.filter((transaction) =>
+    transaction.description.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <form>
@@ -23,7 +21,7 @@ function TransactionList() {
         </div>
       </form>
       <h1>Transaction List</h1>
-      {transactionList.map((transaction) => (
+      {searchTransactions.map((transaction) => (
         <Transaction transaction={transaction} key={transaction.id} />
       ))}
     </div>
