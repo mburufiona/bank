@@ -1,14 +1,21 @@
-// / import './App.css';
 import React from 'react';
+import "./App.css"
+import TransactionList from './TransactionList';
+import NewTransaction from './NewTransaction';
+
 
 function App() {
-  return (
+  return(
+
     <div className="App">
-      <header className="App-header">
-        <h2>Flatiron bank</h2>
-      </header>
+      <div className="App-header">
+        <h1>Flatiron Bank</h1>
+        <NewTransaction />
+        <TransactionList />
+        
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;

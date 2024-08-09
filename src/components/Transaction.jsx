@@ -1,8 +1,13 @@
 import React from 'react'
 
-function Transaction({date, description, type, amount}) {
+function Transaction({transaction}) {
   return (
-    <div>Transaction</div>
+    <div>
+    <div>{transaction.date}</div>
+    <div>{transaction.description}</div>
+    <div>{transaction.category}</div>
+    <div>{transaction.amount}</div>
+  </div>
   )
 }
 
