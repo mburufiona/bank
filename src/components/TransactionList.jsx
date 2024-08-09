@@ -23,9 +23,11 @@ function TransactionList() {
         </div>
       </form>
       <h1>Transaction List</h1>
-      {transactionList.map((transaction) => (
-        <Transaction transaction={transaction} key={transaction.id} />
-      ))}
+      <div className="TransList">
+        {transactionList.map((transaction) => (
+          <Transaction transaction={transaction} key={transaction.id} />
+        ))}
+      </div>
     </div>
   );
 }

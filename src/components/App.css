@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #5f0b7d;
+  background-color: #0077d8;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -24,11 +24,48 @@
   color: white;
 }
 
+.header {
+  color: rgb(255, 255, 255);
+}
+
+.input-container {
+  height: 50px;
+  position: relative;
+  width: 100%;
+}
+
+.ic1 {
+  margin-top: 40px;
+}
+
+.ic2 {
+  margin-top: 30px;
+}
+
+input {
+  background-color: #303245;
+  border-radius: 12px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  font-size: 18px;
+  height: 100%;
+  outline: 0;
+  padding: 4px 20px 0;
+  width: 100%;
+}
+.submit-button {
+  color: rgba(199, 199, 5, 0.973);
+}
 .App-link {
   color: #61dafb;
 }
 form {
   color: antiquewhite;
+}
+
+.TransList {
+  border: 5px solid rgb(0, 0, 0);
 }
 
 @keyframes App-logo-spin {

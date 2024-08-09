@@ -39,9 +39,9 @@ function NewTransaction({ addTransaction }) {
   };
 
   return (
-    <div>
+    <div className="TransForm">
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="input-container ic1">
           <input
             type="date"
             placeholder="Display date"
@@ -49,7 +49,7 @@ function NewTransaction({ addTransaction }) {
             onChange={handleDate}
           ></input>
         </div>
-        <div>
+        <div className="input-container ic2">
           <input
             type="text"
             placeholder="Description"
@@ -57,7 +57,7 @@ function NewTransaction({ addTransaction }) {
             onChange={handleDescription}
           ></input>
         </div>
-        <div>
+        <div className="input-container ic2">
           <input
             type="text"
             placeholder="Category"
@@ -65,7 +65,7 @@ function NewTransaction({ addTransaction }) {
             onChange={handleCategory}
           />
         </div>
-        <div>
+        <div className="input-container ic2">
           <input
             type="number"
             placeholder="Amount"
@@ -73,8 +73,12 @@ function NewTransaction({ addTransaction }) {
             onChange={handleAmount}
           />
         </div>
-        <div>
-          <input type="submit" value="Add Transaction" />
+        <div className="input-container ic2">
+          <input
+            className="submit-button"
+            type="submit"
+            value="Add Transaction"
+          />
         </div>
       </form>
     </div>

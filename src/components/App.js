@@ -20,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <div className="App-header">
-        <h1>Flatiron Bank</h1>
+        <h1 className="header">Flatiron Bank</h1>
         <NewTransaction addTransaction={addTransaction} />
         <TransactionList transactionList={transactionList} />
       </div>
