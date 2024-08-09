@@ -18,7 +18,7 @@ function NewTransaction({ addTransaction }) {
       category,
       amount,
     };
-    fetch("http://localhost:3000/transactions", {
+    fetch("https://back-end-teal.vercel.app/transactions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -6,7 +6,7 @@ function TransactionList() {
   const [transactionList, setTransactionList] = useState([]);
   const [search, setSearch] = useState("");
   useEffect(() => {
-    fetch("http://localhost:3000/transactions")
+    fetch("https://back-end-teal.vercel.app/transactions")
       .then((res) => res.json())
       .then((transactionList) => setTransactionList(transactionList));
   }, []);
