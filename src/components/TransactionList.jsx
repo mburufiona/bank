@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Transaction from "./Transaction";
-// import Transaction from "./Transaction";
 
-function TransactionList() {
-  const [transactionList, setTransactionList] = useState([]);
+function TransactionList({ transactionList }) {
   const [search, setSearch] = useState("");
-  useEffect(() => {
-    fetch("https://back-end-teal.vercel.app/transactions")
-      .then((res) => res.json())
-      .then((transactionList) => setTransactionList(transactionList));
-  }, []);
+
+  // Filter transactions based on the search input
+  const filteredTransactions = transactionList.filter((transaction) =>
+    transaction.description.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div>
       <form>
@@ -24,7 +23,7 @@ function TransactionList() {
       </form>
       <h1>Transaction List</h1>
       <div className="TransList">
-        {transactionList.map((transaction) => (
+        {filteredTransactions.map((transaction) => (
           <Transaction transaction={transaction} key={transaction.id} />
         ))}
       </div>
